@@ -8,6 +8,7 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import android.util.Log;
 
+
 public class ParseApplications {
 	
 	private String data;
@@ -53,9 +54,9 @@ public class ParseApplications {
 						if(tagName.equalsIgnoreCase("name")){
 							currentRecord.setName(textValue);
 						}else if(tagName.equalsIgnoreCase("artist")){
-							currentRecord.setName(textValue);
+							currentRecord.setArtist(textValue);
 						}else if(tagName.equalsIgnoreCase("releaseDate")){
-							currentRecord.setName(textValue);
+							currentRecord.setReleaseDate(textValue);
 						}
 					}
 				}
@@ -65,13 +66,16 @@ public class ParseApplications {
 			e.printStackTrace();
 			operationStatus = false;
 		}
-		/*
+		
 		for(Application app: applications){
 			Log.d("LOG", "*************");
+			//Log.d("LOG", "START LOGGING");
 			Log.d("LOG", app.getName());
 			Log.d("LOG", app.getArtist());
 			Log.d("LOG", app.getReleaseDate());
-		}*/
+			//Log.d("LOG", "END LOGGING");
+			
+		}
 		return operationStatus;
 	}
 }

@@ -8,31 +8,23 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="org.example.top10downloader.MainActivity" >
     
-    <ScrollView
-        android:id="@+id/scrollApps"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="@+id/btnParse"
-        android:layout_below="@id/btnParse"
-        android:layout_marginBottom="166dp" >
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical" >
-        </LinearLayout>
-    </ScrollView>
 
     <Button
         android:id="@+id/btnParse"
-        style="?android:attr/buttonStyleSmall"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="32dp"
         android:text="Parse XML" />
+    
+     <ListView
+        android:id="@+id/listApps"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="@+id/btnParse"
+        android:layout_below="@id/btnParse"
+        android:visibility="invisible" >
+      </ListView>
 
 </RelativeLayout>

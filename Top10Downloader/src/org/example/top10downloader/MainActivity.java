@@ -14,14 +14,15 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.ScrollView;
+import android.widget.ListView;
 
 
 public class MainActivity extends Activity {
 
 	Button btnParse;
-	ScrollView scrollApps;
+	ListView listApps;
 	String xmlData;
 	
 	@Override
@@ -29,7 +30,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         btnParse = (Button) findViewById(R.id.btnParse);
-        scrollApps = (ScrollView) findViewById(R.id.scrollApps);
+        listApps = (ListView) findViewById(R.id.listApps);
         
         btnParse.setOnClickListener(new View.OnClickListener() {
 			
@@ -39,7 +40,9 @@ public class MainActivity extends Activity {
 				boolean operationStatus = parse.process();
 				if(operationStatus){
 					ArrayList<Application> allApps = parse.getApplications();
-					ArrayAdapter<Application> adapter = new ArrayAdapter<Application>(MainActivity.this, R.layout, allApps);
+					ArrayAdapter<Application> adapter = new ArrayAdapter<Application>(MainActivity.this, R.layout.list_item, allApps);
+					listApps.setVisibility(listApps.VISIBLE);
+					listApps.setAdapter(adapter);
 				} else{
 					Log.d("MainActivity", "Error parsing file");
 				}
